@@ -19,6 +19,9 @@ export const handler = async (event, context) => {
   const API_KEY = process.env.NOUN_PROJECT_KEY
   const API_SECRET = process.env.NOUN_PROJECT_SECRET
 
+  console.log(`API_KEY exists: ${!!API_KEY}`)
+  console.log(`API_SECRET exists: ${!!API_SECRET}`)
+  
   if (!API_KEY || !API_SECRET) {
     return {
       statusCode: 500,
@@ -28,15 +31,23 @@ export const handler = async (event, context) => {
 
   try {
     const auth = Buffer.from(`${API_KEY}:${API_SECRET}`).toString('base64')
-    const url = `https://api.thenounproject.com/v2/icon?query=${encodeURIComponent(searchTerm)}&styles=line`
+    const baseUrl = 'https://api.thenounproject.com/v2/icon'
+    const queryParams = new URLSearchParams({
+      query: searchTerm,
+      styles: 'line'
+    })
+    const url = `${baseUrl}?${queryParams.toString()}`
     
     console.log(`Fetching icon for: ${searchTerm}`)
     console.log(`URL: ${url}`)
+    console.log(`Auth header: Basic ${auth.substring(0, 10)}...`)
     
     const response = await fetch(url, {
+      method: 'GET',
       headers: {
         'Authorization': `Basic ${auth}`,
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'User-Agent': 'Canto-Learn-App/1.0'
       }
     })
 
