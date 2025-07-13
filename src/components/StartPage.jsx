@@ -1,4 +1,5 @@
 import './StartPage.css'
+import packageInfo from '../../package.json'
 
 const StartPage = ({ onStartQuiz }) => {
   const handleStart = (questionCount) => {
@@ -58,6 +59,9 @@ const StartPage = ({ onStartQuiz }) => {
             <span>Funker offline</span>
           </div>
         </div>
+      </div>
+      <div className="version-info">
+        v{packageInfo.version}
       </div>
     </div>
   )
