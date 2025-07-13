@@ -778,5 +778,525 @@
         "icon_search": "sad"
       }
     ]
+  },
+  {
+    "question_id": 31,
+    "tts_text": "食早餐",
+    "correct_answer": {
+      "text": "Spise frokost",
+      "icon_search": "breakfast"
+    },
+    "alternatives": [
+      {
+        "text": "Spise frokost",
+        "icon_search": "breakfast"
+      },
+      {
+        "text": "Spise lunsj",
+        "icon_search": "lunch"
+      },
+      {
+        "text": "Spise middag",
+        "icon_search": "dinner"
+      },
+      {
+        "text": "Drikke kaffe",
+        "icon_search": "coffee"
+      }
+    ]
+  },
+  {
+    "question_id": 32,
+    "tts_text": "朋友",
+    "correct_answer": {
+      "text": "Venn",
+      "icon_search": "friend"
+    },
+    "alternatives": [
+      {
+        "text": "Venn",
+        "icon_search": "friend"
+      },
+      {
+        "text": "Familie",
+        "icon_search": "family"
+      },
+      {
+        "text": "Lærer",
+        "icon_search": "teacher"
+      },
+      {
+        "text": "Fremmed",
+        "icon_search": "stranger"
+      }
+    ]
+  },
+  {
+    "question_id": 33,
+    "tts_text": "返工",
+    "correct_answer": {
+      "text": "Gå på jobb",
+      "icon_search": "work"
+    },
+    "alternatives": [
+      {
+        "text": "Gå på jobb",
+        "icon_search": "work"
+      },
+      {
+        "text": "Komme hjem",
+        "icon_search": "home"
+      },
+      {
+        "text": "Gå på skole",
+        "icon_search": "school"
+      },
+      {
+        "text": "Gå ut",
+        "icon_search": "exit"
+      }
+    ]
+  },
+  {
+    "question_id": 34,
+    "tts_text": "買嘢",
+    "correct_answer": {
+      "text": "Handle",
+      "icon_search": "shopping"
+    },
+    "alternatives": [
+      {
+        "text": "Handle",
+        "icon_search": "shopping"
+      },
+      {
+        "text": "Selge",
+        "icon_search": "sell"
+      },
+      {
+        "text": "Låne",
+        "icon_search": "borrow"
+      },
+      {
+        "text": "Gi bort",
+        "icon_search": "give"
+      }
+    ]
+  },
+  {
+    "question_id": 35,
+    "tts_text": "行路",
+    "correct_answer": {
+      "text": "Gå",
+      "icon_search": "walk"
+    },
+    "alternatives": [
+      {
+        "text": "Gå",
+        "icon_search": "walk"
+      },
+      {
+        "text": "Løpe",
+        "icon_search": "run"
+      },
+      {
+        "text": "Sykle",
+        "icon_search": "bicycle"
+      },
+      {
+        "text": "Kjøre",
+        "icon_search": "drive"
+      }
+    ]
+  },
+  {
+    "question_id": 36,
+    "tts_text": "聽歌",
+    "correct_answer": {
+      "text": "Høre musikk",
+      "icon_search": "music"
+    },
+    "alternatives": [
+      {
+        "text": "Høre musikk",
+        "icon_search": "music"
+      },
+      {
+        "text": "Se TV",
+        "icon_search": "television"
+      },
+      {
+        "text": "Lese bok",
+        "icon_search": "book"
+      },
+      {
+        "text": "Spille spill",
+        "icon_search": "game"
+      }
+    ]
+  },
+  {
+    "question_id": 37,
+    "tts_text": "洗面",
+    "correct_answer": {
+      "text": "Vaske ansikt",
+      "icon_search": "wash"
+    },
+    "alternatives": [
+      {
+        "text": "Vaske ansikt",
+        "icon_search": "wash"
+      },
+      {
+        "text": "Pusse tenner",
+        "icon_search": "brush teeth"
+      },
+      {
+        "text": "Dusje",
+        "icon_search": "shower"
+      },
+      {
+        "text": "Kle på seg",
+        "icon_search": "dress"
+      }
+    ]
+  },
+  {
+    "question_id": 38,
+    "tts_text": "著衫",
+    "correct_answer": {
+      "text": "Kle på seg",
+      "icon_search": "dress"
+    },
+    "alternatives": [
+      {
+        "text": "Kle på seg",
+        "icon_search": "dress"
+      },
+      {
+        "text": "Kle av seg",
+        "icon_search": "undress"
+      },
+      {
+        "text": "Vaske klær",
+        "icon_search": "laundry"
+      },
+      {
+        "text": "Kjøpe klær",
+        "icon_search": "shopping"
+      }
+    ]
+  },
+  {
+    "question_id": 39,
+    "tts_text": "開心",
+    "correct_answer": {
+      "text": "Glad",
+      "icon_search": "happy"
+    },
+    "alternatives": [
+      {
+        "text": "Glad",
+        "icon_search": "happy"
+      },
+      {
+        "text": "Trist",
+        "icon_search": "sad"
+      },
+      {
+        "text": "Sint",
+        "icon_search": "angry"
+      },
+      {
+        "text": "Redd",
+        "icon_search": "scared"
+      }
+    ]
+  },
+  {
+    "question_id": 40,
+    "tts_text": "肚餓",
+    "correct_answer": {
+      "text": "Sulten",
+      "icon_search": "hungry"
+    },
+    "alternatives": [
+      {
+        "text": "Sulten",
+        "icon_search": "hungry"
+      },
+      {
+        "text": "Mett",
+        "icon_search": "full"
+      },
+      {
+        "text": "Tørst",
+        "icon_search": "thirsty"
+      },
+      {
+        "text": "Trøtt",
+        "icon_search": "tired"
+      }
+    ]
+  },
+  {
+    "question_id": 41,
+    "tts_text": "攰",
+    "correct_answer": {
+      "text": "Trøtt",
+      "icon_search": "tired"
+    },
+    "alternatives": [
+      {
+        "text": "Trøtt",
+        "icon_search": "tired"
+      },
+      {
+        "text": "Energisk",
+        "icon_search": "energetic"
+      },
+      {
+        "text": "Våken",
+        "icon_search": "awake"
+      },
+      {
+        "text": "Sykt",
+        "icon_search": "sick"
+      }
+    ]
+  },
+  {
+    "question_id": 42,
+    "tts_text": "病",
+    "correct_answer": {
+      "text": "Syk",
+      "icon_search": "sick"
+    },
+    "alternatives": [
+      {
+        "text": "Syk",
+        "icon_search": "sick"
+      },
+      {
+        "text": "Frisk",
+        "icon_search": "healthy"
+      },
+      {
+        "text": "Sterk",
+        "icon_search": "strong"
+      },
+      {
+        "text": "Svak",
+        "icon_search": "weak"
+      }
+    ]
+  },
+  {
+    "question_id": 43,
+    "tts_text": "天氣",
+    "correct_answer": {
+      "text": "Vær",
+      "icon_search": "weather"
+    },
+    "alternatives": [
+      {
+        "text": "Vær",
+        "icon_search": "weather"
+      },
+      {
+        "text": "Temperatur",
+        "icon_search": "temperature"
+      },
+      {
+        "text": "Årstid",
+        "icon_search": "season"
+      },
+      {
+        "text": "Klimat",
+        "icon_search": "climate"
+      }
+    ]
+  },
+  {
+    "question_id": 44,
+    "tts_text": "時間",
+    "correct_answer": {
+      "text": "Tid",
+      "icon_search": "time"
+    },
+    "alternatives": [
+      {
+        "text": "Tid",
+        "icon_search": "time"
+      },
+      {
+        "text": "Klokke",
+        "icon_search": "clock"
+      },
+      {
+        "text": "Dato",
+        "icon_search": "date"
+      },
+      {
+        "text": "Kalender",
+        "icon_search": "calendar"
+      }
+    ]
+  },
+  {
+    "question_id": 45,
+    "tts_text": "今日",
+    "correct_answer": {
+      "text": "I dag",
+      "icon_search": "today"
+    },
+    "alternatives": [
+      {
+        "text": "I dag",
+        "icon_search": "today"
+      },
+      {
+        "text": "I morgen",
+        "icon_search": "tomorrow"
+      },
+      {
+        "text": "I går",
+        "icon_search": "yesterday"
+      },
+      {
+        "text": "Nå",
+        "icon_search": "now"
+      }
+    ]
+  },
+  {
+    "question_id": 46,
+    "tts_text": "聽日",
+    "correct_answer": {
+      "text": "I morgen",
+      "icon_search": "tomorrow"
+    },
+    "alternatives": [
+      {
+        "text": "I morgen",
+        "icon_search": "tomorrow"
+      },
+      {
+        "text": "I dag",
+        "icon_search": "today"
+      },
+      {
+        "text": "I går",
+        "icon_search": "yesterday"
+      },
+      {
+        "text": "Neste uke",
+        "icon_search": "next week"
+      }
+    ]
+  },
+  {
+    "question_id": 47,
+    "tts_text": "尋日",
+    "correct_answer": {
+      "text": "I går",
+      "icon_search": "yesterday"
+    },
+    "alternatives": [
+      {
+        "text": "I går",
+        "icon_search": "yesterday"
+      },
+      {
+        "text": "I dag",
+        "icon_search": "today"
+      },
+      {
+        "text": "I morgen",
+        "icon_search": "tomorrow"
+      },
+      {
+        "text": "Forrige uke",
+        "icon_search": "last week"
+      }
+    ]
+  },
+  {
+    "question_id": 48,
+    "tts_text": "早晨",
+    "correct_answer": {
+      "text": "Morgen",
+      "icon_search": "morning"
+    },
+    "alternatives": [
+      {
+        "text": "Morgen",
+        "icon_search": "morning"
+      },
+      {
+        "text": "Middag",
+        "icon_search": "afternoon"
+      },
+      {
+        "text": "Kveld",
+        "icon_search": "evening"
+      },
+      {
+        "text": "Natt",
+        "icon_search": "night"
+      }
+    ]
+  },
+  {
+    "question_id": 49,
+    "tts_text": "夜晚",
+    "correct_answer": {
+      "text": "Kveld",
+      "icon_search": "evening"
+    },
+    "alternatives": [
+      {
+        "text": "Kveld",
+        "icon_search": "evening"
+      },
+      {
+        "text": "Morgen",
+        "icon_search": "morning"
+      },
+      {
+        "text": "Middag",
+        "icon_search": "afternoon"
+      },
+      {
+        "text": "Natt",
+        "icon_search": "night"
+      }
+    ]
+  },
+  {
+    "question_id": 50,
+    "tts_text": "飲茶",
+    "correct_answer": {
+      "text": "Drikke te",
+      "icon_search": "tea"
+    },
+    "alternatives": [
+      {
+        "text": "Drikke te",
+        "icon_search": "tea"
+      },
+      {
+        "text": "Drikke kaffe",
+        "icon_search": "coffee"
+      },
+      {
+        "text": "Drikke øl",
+        "icon_search": "beer"
+      },
+      {
+        "text": "Drikke juice",
+        "icon_search": "juice"
+      }
+    ]
   }
 ]
