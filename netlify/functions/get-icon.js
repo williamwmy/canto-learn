@@ -28,6 +28,10 @@ function generateOAuthSignature(method, url, params, consumerSecret, tokenSecret
 }
 
 function generateOAuthHeader(method, url, consumerKey, consumerSecret) {
+  return generateOAuthHeaderWithParams(method, url, {}, consumerKey, consumerSecret)
+}
+
+function generateOAuthHeaderWithParams(method, url, queryParams, consumerKey, consumerSecret) {
   const timestamp = Math.floor(Date.now() / 1000)
   const nonce = crypto.randomBytes(16).toString('hex')
   
@@ -39,11 +43,14 @@ function generateOAuthHeader(method, url, consumerKey, consumerSecret) {
     oauth_version: '1.0'
   }
   
+  // Combine OAuth params with query params for signature generation
+  const allParams = { ...oauthParams, ...queryParams }
+  
   // Generate signature
-  const signature = generateOAuthSignature(method, url, oauthParams, consumerSecret)
+  const signature = generateOAuthSignature(method, url, allParams, consumerSecret)
   oauthParams.oauth_signature = signature
   
-  // Create OAuth header
+  // Create OAuth header (only OAuth params, not query params)
   const oauthHeader = 'OAuth ' + Object.keys(oauthParams)
     .map(key => `${key}="${encodeURIComponent(oauthParams[key])}"`)
     .join(', ')
@@ -83,24 +90,52 @@ export const handler = async (event, context) => {
   }
 
   try {
-    const baseUrl = 'https://api.thenounproject.com/v2/icon'
-    const fullUrl = `${baseUrl}?query=${encodeURIComponent(searchTerm)}&limit=1`
+    // Try different API versions and endpoints
+    const endpoints = [
+      'https://api.thenounproject.com/icons',
+      'https://api.thenounproject.com/v2/icon'
+    ]
     
-    console.log(`Fetching icon for: ${searchTerm}`)
-    console.log(`URL: ${fullUrl}`)
+    let response, authHeader, fullUrl
     
-    // Generate OAuth 1.0a authorization header
-    const authHeader = generateOAuthHeader('GET', baseUrl, CONSUMER_KEY, CONSUMER_SECRET)
-    console.log(`OAuth header generated`)
-    
-    const response = await fetch(fullUrl, {
-      method: 'GET',
-      headers: {
-        'Authorization': authHeader,
-        'Accept': 'application/json',
-        'User-Agent': 'Canto-Learn-App/1.0'
+    for (const baseUrl of endpoints) {
+      const queryParams = new URLSearchParams({
+        query: searchTerm,
+        limit: '1'
+      })
+      fullUrl = `${baseUrl}?${queryParams.toString()}`
+      
+      console.log(`Trying endpoint: ${baseUrl}`)
+      console.log(`Full URL: ${fullUrl}`)
+      
+      // Important: OAuth signature must be generated with query parameters included
+      const allParams = {
+        query: searchTerm,
+        limit: '1'
       }
-    })
+      
+      authHeader = generateOAuthHeaderWithParams('GET', baseUrl, allParams, CONSUMER_KEY, CONSUMER_SECRET)
+      console.log(`OAuth header: ${authHeader.substring(0, 100)}...`)
+      
+      response = await fetch(fullUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': authHeader,
+          'Accept': 'application/json',
+          'User-Agent': 'Canto-Learn-App/1.0'
+        }
+      })
+      
+      console.log(`Response status: ${response.status}`)
+      
+      if (response.ok) {
+        break
+      } else if (response.status !== 403) {
+        // If it's not a 403, log the error and try next endpoint
+        const errorText = await response.text()
+        console.error(`Endpoint ${baseUrl} failed: ${response.status} - ${errorText}`)
+      }
+    }
 
     if (!response.ok) {
       const errorText = await response.text()
