@@ -90,52 +90,37 @@ export const handler = async (event, context) => {
   }
 
   try {
-    // Try different API versions and endpoints
-    const endpoints = [
-      'https://api.thenounproject.com/icons',
-      'https://api.thenounproject.com/v2/icon'
-    ]
+    // Use only v2 endpoint since it works
+    const baseUrl = 'https://api.thenounproject.com/v2/icon'
     
-    let response, authHeader, fullUrl
+    const queryParams = new URLSearchParams({
+      query: searchTerm,
+      limit: '1'
+    })
+    const fullUrl = `${baseUrl}?${queryParams.toString()}`
     
-    for (const baseUrl of endpoints) {
-      const queryParams = new URLSearchParams({
-        query: searchTerm,
-        limit: '1'
-      })
-      fullUrl = `${baseUrl}?${queryParams.toString()}`
-      
-      console.log(`Trying endpoint: ${baseUrl}`)
-      console.log(`Full URL: ${fullUrl}`)
-      
-      // Important: OAuth signature must be generated with query parameters included
-      const allParams = {
-        query: searchTerm,
-        limit: '1'
-      }
-      
-      authHeader = generateOAuthHeaderWithParams('GET', baseUrl, allParams, CONSUMER_KEY, CONSUMER_SECRET)
-      console.log(`OAuth header: ${authHeader.substring(0, 100)}...`)
-      
-      response = await fetch(fullUrl, {
-        method: 'GET',
-        headers: {
-          'Authorization': authHeader,
-          'Accept': 'application/json',
-          'User-Agent': 'Canto-Learn-App/1.0'
-        }
-      })
-      
-      console.log(`Response status: ${response.status}`)
-      
-      if (response.ok) {
-        break
-      } else if (response.status !== 403) {
-        // If it's not a 403, log the error and try next endpoint
-        const errorText = await response.text()
-        console.error(`Endpoint ${baseUrl} failed: ${response.status} - ${errorText}`)
-      }
+    console.log(`Fetching icon for: ${searchTerm}`)
+    console.log(`Full URL: ${fullUrl}`)
+    
+    // Important: OAuth signature must be generated with query parameters included
+    const allParams = {
+      query: searchTerm,
+      limit: '1'
     }
+    
+    const authHeader = generateOAuthHeaderWithParams('GET', baseUrl, allParams, CONSUMER_KEY, CONSUMER_SECRET)
+    console.log(`OAuth header generated`)
+    
+    const response = await fetch(fullUrl, {
+      method: 'GET',
+      headers: {
+        'Authorization': authHeader,
+        'Accept': 'application/json',
+        'User-Agent': 'Canto-Learn-App/1.0'
+      }
+    })
+    
+    console.log(`Response status: ${response.status}`)
 
     if (!response.ok) {
       const errorText = await response.text()
@@ -144,16 +129,27 @@ export const handler = async (event, context) => {
     }
 
     const data = await response.json()
+    console.log(`API Response:`, JSON.stringify(data, null, 2))
     
     let iconUrl = null
     
+    // Handle different response formats from API
     if (data.icons && data.icons.length > 0) {
       iconUrl = data.icons[0].preview_url || data.icons[0].icon_url
+      console.log(`Found icon in icons array: ${iconUrl}`)
     } else if (data.icon) {
       iconUrl = data.icon.preview_url || data.icon.icon_url
+      console.log(`Found icon in icon object: ${iconUrl}`)
+    } else if (data.preview_url) {
+      iconUrl = data.preview_url
+      console.log(`Found direct preview_url: ${iconUrl}`)
+    } else if (data.icon_url) {
+      iconUrl = data.icon_url
+      console.log(`Found direct icon_url: ${iconUrl}`)
     }
     
     if (iconUrl) {
+      console.log(`Returning icon URL: ${iconUrl}`)
       return {
         statusCode: 200,
         headers: {
@@ -162,6 +158,8 @@ export const handler = async (event, context) => {
         },
         body: JSON.stringify({ iconUrl })
       }
+    } else {
+      console.log(`No icon found in response`)
     }
     
     return {
