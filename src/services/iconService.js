@@ -1,6 +1,3 @@
-const API_KEY = import.meta.env.VITE_NOUN_PROJECT_KEY
-const API_SECRET = import.meta.env.VITE_NOUN_PROJECT_SECRET
-
 const iconCache = new Map()
 
 export const getIconUrl = async (searchTerm) => {
@@ -8,7 +5,7 @@ export const getIconUrl = async (searchTerm) => {
     return iconCache.get(searchTerm)
   }
 
-  // Try Netlify function first (works in production)
+  // Try Netlify function for API icons
   try {
     const response = await fetch(`/.netlify/functions/get-icon?searchTerm=${encodeURIComponent(searchTerm)}`)
     
@@ -20,36 +17,10 @@ export const getIconUrl = async (searchTerm) => {
       }
     }
   } catch (error) {
-    console.log('Netlify function not available, trying direct API call')
+    console.log('Netlify function not available, using emoji fallback')
   }
 
-  // Fallback to direct API call (for local development with credentials)
-  if (API_KEY && API_SECRET) {
-    try {
-      const auth = btoa(`${API_KEY}:${API_SECRET}`)
-      
-      const response = await fetch(`https://api.thenounproject.com/icons/${encodeURIComponent(searchTerm)}?limit=1`, {
-        headers: {
-          'Authorization': `Basic ${auth}`,
-          'Accept': 'application/json'
-        }
-      })
-
-      if (response.ok) {
-        const data = await response.json()
-        
-        if (data.icons && data.icons.length > 0) {
-          const iconUrl = data.icons[0].preview_url || data.icons[0].icon_url
-          iconCache.set(searchTerm, iconUrl)
-          return iconUrl
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching icon:', error)
-    }
-  }
-
-  // Final fallback to emoji
+  // Fallback to emoji
   return getFallbackIcon(searchTerm)
 }
 

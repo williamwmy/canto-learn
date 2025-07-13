@@ -16,8 +16,8 @@ export const handler = async (event, context) => {
     }
   }
 
-  const API_KEY = process.env.NOUN_PROJECT_KEY || process.env.VITE_NOUN_PROJECT_KEY
-  const API_SECRET = process.env.NOUN_PROJECT_SECRET || process.env.VITE_NOUN_PROJECT_SECRET
+  const API_KEY = process.env.NOUN_PROJECT_KEY
+  const API_SECRET = process.env.NOUN_PROJECT_SECRET
 
   if (!API_KEY || !API_SECRET) {
     return {
