@@ -1298,5 +1298,525 @@
         "icon_search": "juice"
       }
     ]
+  },
+  {
+    "question_id": 51,
+    "tts_text": "媽媽",
+    "correct_answer": {
+      "text": "Mamma",
+      "icon_search": "mother"
+    },
+    "alternatives": [
+      {
+        "text": "Mamma",
+        "icon_search": "mother"
+      },
+      {
+        "text": "Pappa",
+        "icon_search": "father"
+      },
+      {
+        "text": "Bestemor",
+        "icon_search": "grandmother"
+      },
+      {
+        "text": "Tante",
+        "icon_search": "aunt"
+      }
+    ]
+  },
+  {
+    "question_id": 52,
+    "tts_text": "爸爸",
+    "correct_answer": {
+      "text": "Pappa",
+      "icon_search": "father"
+    },
+    "alternatives": [
+      {
+        "text": "Pappa",
+        "icon_search": "father"
+      },
+      {
+        "text": "Mamma",
+        "icon_search": "mother"
+      },
+      {
+        "text": "Bestefar",
+        "icon_search": "grandfather"
+      },
+      {
+        "text": "Onkel",
+        "icon_search": "uncle"
+      }
+    ]
+  },
+  {
+    "question_id": 53,
+    "tts_text": "玩具",
+    "correct_answer": {
+      "text": "Leke",
+      "icon_search": "toy"
+    },
+    "alternatives": [
+      {
+        "text": "Leke",
+        "icon_search": "toy"
+      },
+      {
+        "text": "Bok",
+        "icon_search": "book"
+      },
+      {
+        "text": "Ball",
+        "icon_search": "ball"
+      },
+      {
+        "text": "Dukke",
+        "icon_search": "doll"
+      }
+    ]
+  },
+  {
+    "question_id": 54,
+    "tts_text": "波",
+    "correct_answer": {
+      "text": "Ball",
+      "icon_search": "ball"
+    },
+    "alternatives": [
+      {
+        "text": "Ball",
+        "icon_search": "ball"
+      },
+      {
+        "text": "Leke",
+        "icon_search": "toy"
+      },
+      {
+        "text": "Sykkel",
+        "icon_search": "bicycle"
+      },
+      {
+        "text": "Tegning",
+        "icon_search": "drawing"
+      }
+    ]
+  },
+  {
+    "question_id": 55,
+    "tts_text": "畫畫",
+    "correct_answer": {
+      "text": "Tegne",
+      "icon_search": "drawing"
+    },
+    "alternatives": [
+      {
+        "text": "Tegne",
+        "icon_search": "drawing"
+      },
+      {
+        "text": "Skrive",
+        "icon_search": "writing"
+      },
+      {
+        "text": "Leke",
+        "icon_search": "play"
+      },
+      {
+        "text": "Synge",
+        "icon_search": "singing"
+      }
+    ]
+  },
+  {
+    "question_id": 56,
+    "tts_text": "唱歌",
+    "correct_answer": {
+      "text": "Synge",
+      "icon_search": "singing"
+    },
+    "alternatives": [
+      {
+        "text": "Synge",
+        "icon_search": "singing"
+      },
+      {
+        "text": "Danse",
+        "icon_search": "dancing"
+      },
+      {
+        "text": "Spille",
+        "icon_search": "play"
+      },
+      {
+        "text": "Hoppe",
+        "icon_search": "jumping"
+      }
+    ]
+  },
+  {
+    "question_id": 57,
+    "tts_text": "跳舞",
+    "correct_answer": {
+      "text": "Danse",
+      "icon_search": "dancing"
+    },
+    "alternatives": [
+      {
+        "text": "Danse",
+        "icon_search": "dancing"
+      },
+      {
+        "text": "Synge",
+        "icon_search": "singing"
+      },
+      {
+        "text": "Løpe",
+        "icon_search": "running"
+      },
+      {
+        "text": "Hoppe",
+        "icon_search": "jumping"
+      }
+    ]
+  },
+  {
+    "question_id": 58,
+    "tts_text": "跳",
+    "correct_answer": {
+      "text": "Hoppe",
+      "icon_search": "jumping"
+    },
+    "alternatives": [
+      {
+        "text": "Hoppe",
+        "icon_search": "jumping"
+      },
+      {
+        "text": "Løpe",
+        "icon_search": "running"
+      },
+      {
+        "text": "Gå",
+        "icon_search": "walking"
+      },
+      {
+        "text": "Sitte",
+        "icon_search": "sitting"
+      }
+    ]
+  },
+  {
+    "question_id": 59,
+    "tts_text": "糖",
+    "correct_answer": {
+      "text": "Godteri",
+      "icon_search": "candy"
+    },
+    "alternatives": [
+      {
+        "text": "Godteri",
+        "icon_search": "candy"
+      },
+      {
+        "text": "Kake",
+        "icon_search": "cake"
+      },
+      {
+        "text": "Is",
+        "icon_search": "ice cream"
+      },
+      {
+        "text": "Frukt",
+        "icon_search": "fruit"
+      }
+    ]
+  },
+  {
+    "question_id": 60,
+    "tts_text": "雪糕",
+    "correct_answer": {
+      "text": "Is",
+      "icon_search": "ice cream"
+    },
+    "alternatives": [
+      {
+        "text": "Is",
+        "icon_search": "ice cream"
+      },
+      {
+        "text": "Kake",
+        "icon_search": "cake"
+      },
+      {
+        "text": "Godteri",
+        "icon_search": "candy"
+      },
+      {
+        "text": "Juice",
+        "icon_search": "juice"
+      }
+    ]
+  },
+  {
+    "question_id": 61,
+    "tts_text": "生日",
+    "correct_answer": {
+      "text": "Bursdag",
+      "icon_search": "birthday"
+    },
+    "alternatives": [
+      {
+        "text": "Bursdag",
+        "icon_search": "birthday"
+      },
+      {
+        "text": "Jul",
+        "icon_search": "christmas"
+      },
+      {
+        "text": "Fest",
+        "icon_search": "party"
+      },
+      {
+        "text": "Gave",
+        "icon_search": "gift"
+      }
+    ]
+  },
+  {
+    "question_id": 62,
+    "tts_text": "禮物",
+    "correct_answer": {
+      "text": "Gave",
+      "icon_search": "gift"
+    },
+    "alternatives": [
+      {
+        "text": "Gave",
+        "icon_search": "gift"
+      },
+      {
+        "text": "Leke",
+        "icon_search": "toy"
+      },
+      {
+        "text": "Kake",
+        "icon_search": "cake"
+      },
+      {
+        "text": "Blomst",
+        "icon_search": "flower"
+      }
+    ]
+  },
+  {
+    "question_id": 63,
+    "tts_text": "花",
+    "correct_answer": {
+      "text": "Blomst",
+      "icon_search": "flower"
+    },
+    "alternatives": [
+      {
+        "text": "Blomst",
+        "icon_search": "flower"
+      },
+      {
+        "text": "Tre",
+        "icon_search": "tree"
+      },
+      {
+        "text": "Gress",
+        "icon_search": "grass"
+      },
+      {
+        "text": "Blad",
+        "icon_search": "leaf"
+      }
+    ]
+  },
+  {
+    "question_id": 64,
+    "tts_text": "樹",
+    "correct_answer": {
+      "text": "Tre",
+      "icon_search": "tree"
+    },
+    "alternatives": [
+      {
+        "text": "Tre",
+        "icon_search": "tree"
+      },
+      {
+        "text": "Blomst",
+        "icon_search": "flower"
+      },
+      {
+        "text": "Bush",
+        "icon_search": "bush"
+      },
+      {
+        "text": "Gress",
+        "icon_search": "grass"
+      }
+    ]
+  },
+  {
+    "question_id": 65,
+    "tts_text": "蝴蝶",
+    "correct_answer": {
+      "text": "Sommerfugl",
+      "icon_search": "butterfly"
+    },
+    "alternatives": [
+      {
+        "text": "Sommerfugl",
+        "icon_search": "butterfly"
+      },
+      {
+        "text": "Bie",
+        "icon_search": "bee"
+      },
+      {
+        "text": "Fugl",
+        "icon_search": "bird"
+      },
+      {
+        "text": "Edderkopp",
+        "icon_search": "spider"
+      }
+    ]
+  },
+  {
+    "question_id": 66,
+    "tts_text": "蜜蜂",
+    "correct_answer": {
+      "text": "Bie",
+      "icon_search": "bee"
+    },
+    "alternatives": [
+      {
+        "text": "Bie",
+        "icon_search": "bee"
+      },
+      {
+        "text": "Sommerfugl",
+        "icon_search": "butterfly"
+      },
+      {
+        "text": "Maur",
+        "icon_search": "ant"
+      },
+      {
+        "text": "Flue",
+        "icon_search": "fly"
+      }
+    ]
+  },
+  {
+    "question_id": 67,
+    "tts_text": "笑",
+    "correct_answer": {
+      "text": "Le",
+      "icon_search": "laugh"
+    },
+    "alternatives": [
+      {
+        "text": "Le",
+        "icon_search": "laugh"
+      },
+      {
+        "text": "Gråte",
+        "icon_search": "cry"
+      },
+      {
+        "text": "Smile",
+        "icon_search": "smile"
+      },
+      {
+        "text": "Snakke",
+        "icon_search": "talk"
+      }
+    ]
+  },
+  {
+    "question_id": 68,
+    "tts_text": "喊",
+    "correct_answer": {
+      "text": "Gråte",
+      "icon_search": "cry"
+    },
+    "alternatives": [
+      {
+        "text": "Gråte",
+        "icon_search": "cry"
+      },
+      {
+        "text": "Le",
+        "icon_search": "laugh"
+      },
+      {
+        "text": "Rope",
+        "icon_search": "shout"
+      },
+      {
+        "text": "Hviske",
+        "icon_search": "whisper"
+      }
+    ]
+  },
+  {
+    "question_id": 69,
+    "tts_text": "彩虹",
+    "correct_answer": {
+      "text": "Regnbue",
+      "icon_search": "rainbow"
+    },
+    "alternatives": [
+      {
+        "text": "Regnbue",
+        "icon_search": "rainbow"
+      },
+      {
+        "text": "Sky",
+        "icon_search": "cloud"
+      },
+      {
+        "text": "Sol",
+        "icon_search": "sun"
+      },
+      {
+        "text": "Regn",
+        "icon_search": "rain"
+      }
+    ]
+  },
+  {
+    "question_id": 70,
+    "tts_text": "游水",
+    "correct_answer": {
+      "text": "Svømme",
+      "icon_search": "swimming"
+    },
+    "alternatives": [
+      {
+        "text": "Svømme",
+        "icon_search": "swimming"
+      },
+      {
+        "text": "Bade",
+        "icon_search": "bathing"
+      },
+      {
+        "text": "Løpe",
+        "icon_search": "running"
+      },
+      {
+        "text": "Sykle",
+        "icon_search": "cycling"
+      }
+    ]
   }
 ]
