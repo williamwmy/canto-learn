@@ -1,11 +1,11 @@
 .quiz-container {
-  width: 100%;
-  max-width: 100vw;
+  width: 100vw;
+  height: 100vh;
   margin: 0;
-  padding: 20px;
+  padding: 15px;
   font-family: 'Arial', sans-serif;
-  min-height: 100vh;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .quiz-header {
@@ -212,7 +212,8 @@
 @media (max-width: 768px) {
   .quiz-container {
     padding: 10px;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
   }
   
   .answers-grid {
