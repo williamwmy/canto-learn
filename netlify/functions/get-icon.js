@@ -31,12 +31,9 @@ export const handler = async (event, context) => {
 
   try {
     const auth = Buffer.from(`${API_KEY}:${API_SECRET}`).toString('base64')
-    const baseUrl = 'https://api.thenounproject.com/v2/icon'
-    const queryParams = new URLSearchParams({
-      query: searchTerm,
-      styles: 'line'
-    })
-    const url = `${baseUrl}?${queryParams.toString()}`
+    
+    // Try the original v1 API endpoint which might work better
+    const url = `https://api.thenounproject.com/icons/${encodeURIComponent(searchTerm)}?limit=1`
     
     console.log(`Fetching icon for: ${searchTerm}`)
     console.log(`URL: ${url}`)
