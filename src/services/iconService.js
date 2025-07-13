@@ -5,23 +5,10 @@ export const getIconUrl = async (searchTerm) => {
     return iconCache.get(searchTerm)
   }
 
-  // Try Netlify function for API icons
-  try {
-    const response = await fetch(`/.netlify/functions/get-icon?searchTerm=${encodeURIComponent(searchTerm)}`)
-    
-    if (response.ok) {
-      const data = await response.json()
-      if (data.iconUrl) {
-        iconCache.set(searchTerm, data.iconUrl)
-        return data.iconUrl
-      }
-    }
-  } catch (error) {
-    console.log('Netlify function not available, using emoji fallback')
-  }
-
-  // Fallback to emoji
-  return getFallbackIcon(searchTerm)
+  // Use emoji icons directly - they're reliable and work great!
+  const iconUrl = getFallbackIcon(searchTerm)
+  iconCache.set(searchTerm, iconUrl)
+  return iconUrl
 }
 
 const getFallbackIcon = (searchTerm) => {
