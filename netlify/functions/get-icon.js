@@ -28,7 +28,7 @@ export const handler = async (event, context) => {
 
   try {
     const auth = Buffer.from(`${API_KEY}:${API_SECRET}`).toString('base64')
-    const url = `https://api.thenounproject.com/icons/${encodeURIComponent(searchTerm)}?limit=1`
+    const url = `https://api.thenounproject.com/icons?query=${encodeURIComponent(searchTerm)}&limit=1`
     
     console.log(`Fetching icon for: ${searchTerm}`)
     console.log(`URL: ${url}`)
