@@ -135,11 +135,15 @@ export const handler = async (event, context) => {
     
     // Handle different response formats from API
     if (data.icons && data.icons.length > 0) {
-      iconUrl = data.icons[0].preview_url || data.icons[0].icon_url
+      const icon = data.icons[0]
+      iconUrl = icon.thumbnail_url || icon.preview_url || icon.icon_url
       console.log(`Found icon in icons array: ${iconUrl}`)
     } else if (data.icon) {
-      iconUrl = data.icon.preview_url || data.icon.icon_url
+      iconUrl = data.icon.thumbnail_url || data.icon.preview_url || data.icon.icon_url
       console.log(`Found icon in icon object: ${iconUrl}`)
+    } else if (data.thumbnail_url) {
+      iconUrl = data.thumbnail_url
+      console.log(`Found direct thumbnail_url: ${iconUrl}`)
     } else if (data.preview_url) {
       iconUrl = data.preview_url
       console.log(`Found direct preview_url: ${iconUrl}`)
