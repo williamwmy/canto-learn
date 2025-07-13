@@ -28,8 +28,12 @@ export const handler = async (event, context) => {
 
   try {
     const auth = Buffer.from(`${API_KEY}:${API_SECRET}`).toString('base64')
+    const url = `https://api.thenounproject.com/icons/${encodeURIComponent(searchTerm)}?limit=1`
     
-    const response = await fetch(`https://api.thenounproject.com/icons/${encodeURIComponent(searchTerm)}?limit=1`, {
+    console.log(`Fetching icon for: ${searchTerm}`)
+    console.log(`URL: ${url}`)
+    
+    const response = await fetch(url, {
       headers: {
         'Authorization': `Basic ${auth}`,
         'Accept': 'application/json'
@@ -37,6 +41,8 @@ export const handler = async (event, context) => {
     })
 
     if (!response.ok) {
+      const errorText = await response.text()
+      console.error(`API request failed: ${response.status} - ${errorText}`)
       throw new Error(`API request failed: ${response.status}`)
     }
 
