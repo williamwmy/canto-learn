@@ -1,0 +1,782 @@
+[
+  {
+    "question_id": 1,
+    "tts_text": "唔該",
+    "correct_answer": {
+      "text": "Takk",
+      "icon_search": "thank you"
+    },
+    "alternatives": [
+      {
+        "text": "Takk",
+        "icon_search": "thank you"
+      },
+      {
+        "text": "Ja",
+        "icon_search": "yes"
+      },
+      {
+        "text": "Nei",
+        "icon_search": "no"
+      },
+      {
+        "text": "Unnskyld",
+        "icon_search": "sorry"
+      }
+    ]
+  },
+  {
+    "question_id": 2,
+    "tts_text": "你好",
+    "correct_answer": {
+      "text": "Hei",
+      "icon_search": "hello"
+    },
+    "alternatives": [
+      {
+        "text": "Hei",
+        "icon_search": "hello"
+      },
+      {
+        "text": "Ha det",
+        "icon_search": "goodbye"
+      },
+      {
+        "text": "Bra",
+        "icon_search": "good"
+      },
+      {
+        "text": "Dårlig",
+        "icon_search": "bad"
+      }
+    ]
+  },
+  {
+    "question_id": 3,
+    "tts_text": "係",
+    "correct_answer": {
+      "text": "Ja",
+      "icon_search": "yes"
+    },
+    "alternatives": [
+      {
+        "text": "Ja",
+        "icon_search": "yes"
+      },
+      {
+        "text": "Nei",
+        "icon_search": "no"
+      },
+      {
+        "text": "Kanskje",
+        "icon_search": "maybe"
+      },
+      {
+        "text": "Vet ikke",
+        "icon_search": "confused"
+      }
+    ]
+  },
+  {
+    "question_id": 4,
+    "tts_text": "唔係",
+    "correct_answer": {
+      "text": "Nei",
+      "icon_search": "no"
+    },
+    "alternatives": [
+      {
+        "text": "Nei",
+        "icon_search": "no"
+      },
+      {
+        "text": "Ja",
+        "icon_search": "yes"
+      },
+      {
+        "text": "OK",
+        "icon_search": "ok"
+      },
+      {
+        "text": "Stopp",
+        "icon_search": "stop"
+      }
+    ]
+  },
+  {
+    "question_id": 5,
+    "tts_text": "再見",
+    "correct_answer": {
+      "text": "Ha det",
+      "icon_search": "goodbye"
+    },
+    "alternatives": [
+      {
+        "text": "Ha det",
+        "icon_search": "goodbye"
+      },
+      {
+        "text": "Hei",
+        "icon_search": "hello"
+      },
+      {
+        "text": "Takk",
+        "icon_search": "thank you"
+      },
+      {
+        "text": "Beklager",
+        "icon_search": "sorry"
+      }
+    ]
+  },
+  {
+    "question_id": 6,
+    "tts_text": "食飯",
+    "correct_answer": {
+      "text": "Spise mat",
+      "icon_search": "eat"
+    },
+    "alternatives": [
+      {
+        "text": "Spise mat",
+        "icon_search": "eat"
+      },
+      {
+        "text": "Drikke",
+        "icon_search": "drink"
+      },
+      {
+        "text": "Sove",
+        "icon_search": "sleep"
+      },
+      {
+        "text": "Jobbe",
+        "icon_search": "work"
+      }
+    ]
+  },
+  {
+    "question_id": 7,
+    "tts_text": "飲水",
+    "correct_answer": {
+      "text": "Drikke vann",
+      "icon_search": "drink"
+    },
+    "alternatives": [
+      {
+        "text": "Drikke vann",
+        "icon_search": "drink"
+      },
+      {
+        "text": "Spise",
+        "icon_search": "eat"
+      },
+      {
+        "text": "Løpe",
+        "icon_search": "run"
+      },
+      {
+        "text": "Lese",
+        "icon_search": "read"
+      }
+    ]
+  },
+  {
+    "question_id": 8,
+    "tts_text": "瞓覺",
+    "correct_answer": {
+      "text": "Sove",
+      "icon_search": "sleep"
+    },
+    "alternatives": [
+      {
+        "text": "Sove",
+        "icon_search": "sleep"
+      },
+      {
+        "text": "Våkne",
+        "icon_search": "wake up"
+      },
+      {
+        "text": "Spise",
+        "icon_search": "eat"
+      },
+      {
+        "text": "Gå",
+        "icon_search": "walk"
+      }
+    ]
+  },
+  {
+    "question_id": 9,
+    "tts_text": "屋企",
+    "correct_answer": {
+      "text": "Hjem",
+      "icon_search": "home"
+    },
+    "alternatives": [
+      {
+        "text": "Hjem",
+        "icon_search": "home"
+      },
+      {
+        "text": "Skole",
+        "icon_search": "school"
+      },
+      {
+        "text": "Butikk",
+        "icon_search": "shop"
+      },
+      {
+        "text": "Park",
+        "icon_search": "park"
+      }
+    ]
+  },
+  {
+    "question_id": 10,
+    "tts_text": "學校",
+    "correct_answer": {
+      "text": "Skole",
+      "icon_search": "school"
+    },
+    "alternatives": [
+      {
+        "text": "Skole",
+        "icon_search": "school"
+      },
+      {
+        "text": "Hjem",
+        "icon_search": "home"
+      },
+      {
+        "text": "Sykehus",
+        "icon_search": "hospital"
+      },
+      {
+        "text": "Kirke",
+        "icon_search": "church"
+      }
+    ]
+  },
+  {
+    "question_id": 11,
+    "tts_text": "車",
+    "correct_answer": {
+      "text": "Bil",
+      "icon_search": "car"
+    },
+    "alternatives": [
+      {
+        "text": "Bil",
+        "icon_search": "car"
+      },
+      {
+        "text": "Båt",
+        "icon_search": "boat"
+      },
+      {
+        "text": "Fly",
+        "icon_search": "airplane"
+      },
+      {
+        "text": "Tog",
+        "icon_search": "train"
+      }
+    ]
+  },
+  {
+    "question_id": 12,
+    "tts_text": "錢",
+    "correct_answer": {
+      "text": "Penger",
+      "icon_search": "money"
+    },
+    "alternatives": [
+      {
+        "text": "Penger",
+        "icon_search": "money"
+      },
+      {
+        "text": "Bok",
+        "icon_search": "book"
+      },
+      {
+        "text": "Telefon",
+        "icon_search": "phone"
+      },
+      {
+        "text": "Nøkkel",
+        "icon_search": "key"
+      }
+    ]
+  },
+  {
+    "question_id": 13,
+    "tts_text": "手機",
+    "correct_answer": {
+      "text": "Telefon",
+      "icon_search": "phone"
+    },
+    "alternatives": [
+      {
+        "text": "Telefon",
+        "icon_search": "phone"
+      },
+      {
+        "text": "Datamaskin",
+        "icon_search": "computer"
+      },
+      {
+        "text": "TV",
+        "icon_search": "television"
+      },
+      {
+        "text": "Radio",
+        "icon_search": "radio"
+      }
+    ]
+  },
+  {
+    "question_id": 14,
+    "tts_text": "好食",
+    "correct_answer": {
+      "text": "Deilig",
+      "icon_search": "delicious"
+    },
+    "alternatives": [
+      {
+        "text": "Deilig",
+        "icon_search": "delicious"
+      },
+      {
+        "text": "Varm",
+        "icon_search": "hot"
+      },
+      {
+        "text": "Kald",
+        "icon_search": "cold"
+      },
+      {
+        "text": "Sur",
+        "icon_search": "sour"
+      }
+    ]
+  },
+  {
+    "question_id": 15,
+    "tts_text": "凍",
+    "correct_answer": {
+      "text": "Kaldt",
+      "icon_search": "cold"
+    },
+    "alternatives": [
+      {
+        "text": "Kaldt",
+        "icon_search": "cold"
+      },
+      {
+        "text": "Varmt",
+        "icon_search": "hot"
+      },
+      {
+        "text": "Fuktig",
+        "icon_search": "wet"
+      },
+      {
+        "text": "Tørt",
+        "icon_search": "dry"
+      }
+    ]
+  },
+  {
+    "question_id": 16,
+    "tts_text": "熱",
+    "correct_answer": {
+      "text": "Varmt",
+      "icon_search": "hot"
+    },
+    "alternatives": [
+      {
+        "text": "Varmt",
+        "icon_search": "hot"
+      },
+      {
+        "text": "Kaldt",
+        "icon_search": "cold"
+      },
+      {
+        "text": "Mildt",
+        "icon_search": "mild"
+      },
+      {
+        "text": "Kult",
+        "icon_search": "cool"
+      }
+    ]
+  },
+  {
+    "question_id": 17,
+    "tts_text": "大",
+    "correct_answer": {
+      "text": "Stor",
+      "icon_search": "big"
+    },
+    "alternatives": [
+      {
+        "text": "Stor",
+        "icon_search": "big"
+      },
+      {
+        "text": "Liten",
+        "icon_search": "small"
+      },
+      {
+        "text": "Medium",
+        "icon_search": "medium"
+      },
+      {
+        "text": "Høy",
+        "icon_search": "tall"
+      }
+    ]
+  },
+  {
+    "question_id": 18,
+    "tts_text": "細",
+    "correct_answer": {
+      "text": "Liten",
+      "icon_search": "small"
+    },
+    "alternatives": [
+      {
+        "text": "Liten",
+        "icon_search": "small"
+      },
+      {
+        "text": "Stor",
+        "icon_search": "big"
+      },
+      {
+        "text": "Lang",
+        "icon_search": "long"
+      },
+      {
+        "text": "Kort",
+        "icon_search": "short"
+      }
+    ]
+  },
+  {
+    "question_id": 19,
+    "tts_text": "快",
+    "correct_answer": {
+      "text": "Fort",
+      "icon_search": "fast"
+    },
+    "alternatives": [
+      {
+        "text": "Fort",
+        "icon_search": "fast"
+      },
+      {
+        "text": "Sakte",
+        "icon_search": "slow"
+      },
+      {
+        "text": "Stopp",
+        "icon_search": "stop"
+      },
+      {
+        "text": "Gå",
+        "icon_search": "go"
+      }
+    ]
+  },
+  {
+    "question_id": 20,
+    "tts_text": "慢",
+    "correct_answer": {
+      "text": "Sakte",
+      "icon_search": "slow"
+    },
+    "alternatives": [
+      {
+        "text": "Sakte",
+        "icon_search": "slow"
+      },
+      {
+        "text": "Fort",
+        "icon_search": "fast"
+      },
+      {
+        "text": "Normal",
+        "icon_search": "normal"
+      },
+      {
+        "text": "Stans",
+        "icon_search": "pause"
+      }
+    ]
+  },
+  {
+    "question_id": 21,
+    "tts_text": "狗",
+    "correct_answer": {
+      "text": "Hund",
+      "icon_search": "dog"
+    },
+    "alternatives": [
+      {
+        "text": "Hund",
+        "icon_search": "dog"
+      },
+      {
+        "text": "Katt",
+        "icon_search": "cat"
+      },
+      {
+        "text": "Fugl",
+        "icon_search": "bird"
+      },
+      {
+        "text": "Fisk",
+        "icon_search": "fish"
+      }
+    ]
+  },
+  {
+    "question_id": 22,
+    "tts_text": "貓",
+    "correct_answer": {
+      "text": "Katt",
+      "icon_search": "cat"
+    },
+    "alternatives": [
+      {
+        "text": "Katt",
+        "icon_search": "cat"
+      },
+      {
+        "text": "Hund",
+        "icon_search": "dog"
+      },
+      {
+        "text": "Mus",
+        "icon_search": "mouse"
+      },
+      {
+        "text": "Kanin",
+        "icon_search": "rabbit"
+      }
+    ]
+  },
+  {
+    "question_id": 23,
+    "tts_text": "雨",
+    "correct_answer": {
+      "text": "Regn",
+      "icon_search": "rain"
+    },
+    "alternatives": [
+      {
+        "text": "Regn",
+        "icon_search": "rain"
+      },
+      {
+        "text": "Sol",
+        "icon_search": "sun"
+      },
+      {
+        "text": "Snø",
+        "icon_search": "snow"
+      },
+      {
+        "text": "Vind",
+        "icon_search": "wind"
+      }
+    ]
+  },
+  {
+    "question_id": 24,
+    "tts_text": "太陽",
+    "correct_answer": {
+      "text": "Sol",
+      "icon_search": "sun"
+    },
+    "alternatives": [
+      {
+        "text": "Sol",
+        "icon_search": "sun"
+      },
+      {
+        "text": "Måne",
+        "icon_search": "moon"
+      },
+      {
+        "text": "Stjerne",
+        "icon_search": "star"
+      },
+      {
+        "text": "Sky",
+        "icon_search": "cloud"
+      }
+    ]
+  },
+  {
+    "question_id": 25,
+    "tts_text": "紅色",
+    "correct_answer": {
+      "text": "Rød",
+      "icon_search": "red"
+    },
+    "alternatives": [
+      {
+        "text": "Rød",
+        "icon_search": "red"
+      },
+      {
+        "text": "Blå",
+        "icon_search": "blue"
+      },
+      {
+        "text": "Grønn",
+        "icon_search": "green"
+      },
+      {
+        "text": "Gul",
+        "icon_search": "yellow"
+      }
+    ]
+  },
+  {
+    "question_id": 26,
+    "tts_text": "藍色",
+    "correct_answer": {
+      "text": "Blå",
+      "icon_search": "blue"
+    },
+    "alternatives": [
+      {
+        "text": "Blå",
+        "icon_search": "blue"
+      },
+      {
+        "text": "Rød",
+        "icon_search": "red"
+      },
+      {
+        "text": "Svart",
+        "icon_search": "black"
+      },
+      {
+        "text": "Hvit",
+        "icon_search": "white"
+      }
+    ]
+  },
+  {
+    "question_id": 27,
+    "tts_text": "一",
+    "correct_answer": {
+      "text": "En",
+      "icon_search": "one"
+    },
+    "alternatives": [
+      {
+        "text": "En",
+        "icon_search": "one"
+      },
+      {
+        "text": "To",
+        "icon_search": "two"
+      },
+      {
+        "text": "Tre",
+        "icon_search": "three"
+      },
+      {
+        "text": "Fire",
+        "icon_search": "four"
+      }
+    ]
+  },
+  {
+    "question_id": 28,
+    "tts_text": "二",
+    "correct_answer": {
+      "text": "To",
+      "icon_search": "two"
+    },
+    "alternatives": [
+      {
+        "text": "To",
+        "icon_search": "two"
+      },
+      {
+        "text": "En",
+        "icon_search": "one"
+      },
+      {
+        "text": "Fem",
+        "icon_search": "five"
+      },
+      {
+        "text": "Ti",
+        "icon_search": "ten"
+      }
+    ]
+  },
+  {
+    "question_id": 29,
+    "tts_text": "三",
+    "correct_answer": {
+      "text": "Tre",
+      "icon_search": "three"
+    },
+    "alternatives": [
+      {
+        "text": "Tre",
+        "icon_search": "three"
+      },
+      {
+        "text": "Seks",
+        "icon_search": "six"
+      },
+      {
+        "text": "Ni",
+        "icon_search": "nine"
+      },
+      {
+        "text": "Tolv",
+        "icon_search": "twelve"
+      }
+    ]
+  },
+  {
+    "question_id": 30,
+    "tts_text": "愛",
+    "correct_answer": {
+      "text": "Kjærlighet",
+      "icon_search": "love"
+    },
+    "alternatives": [
+      {
+        "text": "Kjærlighet",
+        "icon_search": "love"
+      },
+      {
+        "text": "Hat",
+        "icon_search": "hate"
+      },
+      {
+        "text": "Glede",
+        "icon_search": "happy"
+      },
+      {
+        "text": "Trist",
+        "icon_search": "sad"
+      }
+    ]
+  }
+]
