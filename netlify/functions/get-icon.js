@@ -1,3 +1,56 @@
+import crypto from 'crypto'
+
+// OAuth 1.0a signature generation
+function generateOAuthSignature(method, url, params, consumerSecret, tokenSecret = '') {
+  // Create parameter string
+  const sortedParams = Object.keys(params)
+    .sort()
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    .join('&')
+  
+  // Create signature base string
+  const signatureBaseString = [
+    method.toUpperCase(),
+    encodeURIComponent(url),
+    encodeURIComponent(sortedParams)
+  ].join('&')
+  
+  // Create signing key
+  const signingKey = `${encodeURIComponent(consumerSecret)}&${encodeURIComponent(tokenSecret)}`
+  
+  // Generate signature
+  const signature = crypto
+    .createHmac('sha1', signingKey)
+    .update(signatureBaseString)
+    .digest('base64')
+  
+  return signature
+}
+
+function generateOAuthHeader(method, url, consumerKey, consumerSecret) {
+  const timestamp = Math.floor(Date.now() / 1000)
+  const nonce = crypto.randomBytes(16).toString('hex')
+  
+  const oauthParams = {
+    oauth_consumer_key: consumerKey,
+    oauth_nonce: nonce,
+    oauth_signature_method: 'HMAC-SHA1',
+    oauth_timestamp: timestamp,
+    oauth_version: '1.0'
+  }
+  
+  // Generate signature
+  const signature = generateOAuthSignature(method, url, oauthParams, consumerSecret)
+  oauthParams.oauth_signature = signature
+  
+  // Create OAuth header
+  const oauthHeader = 'OAuth ' + Object.keys(oauthParams)
+    .map(key => `${key}="${encodeURIComponent(oauthParams[key])}"`)
+    .join(', ')
+  
+  return oauthHeader
+}
+
 export const handler = async (event, context) => {
   // Only allow GET requests
   if (event.httpMethod !== 'GET') {
@@ -16,13 +69,13 @@ export const handler = async (event, context) => {
     }
   }
 
-  const API_KEY = process.env.NOUN_PROJECT_KEY
-  const API_SECRET = process.env.NOUN_PROJECT_SECRET
+  const CONSUMER_KEY = process.env.NOUN_PROJECT_KEY
+  const CONSUMER_SECRET = process.env.NOUN_PROJECT_SECRET
 
-  console.log(`API_KEY exists: ${!!API_KEY}`)
-  console.log(`API_SECRET exists: ${!!API_SECRET}`)
+  console.log(`CONSUMER_KEY exists: ${!!CONSUMER_KEY}`)
+  console.log(`CONSUMER_SECRET exists: ${!!CONSUMER_SECRET}`)
   
-  if (!API_KEY || !API_SECRET) {
+  if (!CONSUMER_KEY || !CONSUMER_SECRET) {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'API credentials not configured' })
@@ -30,19 +83,20 @@ export const handler = async (event, context) => {
   }
 
   try {
-    const auth = Buffer.from(`${API_KEY}:${API_SECRET}`).toString('base64')
-    
-    // Try the original v1 API endpoint which might work better
-    const url = `https://api.thenounproject.com/icons/${encodeURIComponent(searchTerm)}?limit=1`
+    const baseUrl = 'https://api.thenounproject.com/v2/icon'
+    const fullUrl = `${baseUrl}?query=${encodeURIComponent(searchTerm)}&limit=1`
     
     console.log(`Fetching icon for: ${searchTerm}`)
-    console.log(`URL: ${url}`)
-    console.log(`Auth header: Basic ${auth.substring(0, 10)}...`)
+    console.log(`URL: ${fullUrl}`)
     
-    const response = await fetch(url, {
+    // Generate OAuth 1.0a authorization header
+    const authHeader = generateOAuthHeader('GET', baseUrl, CONSUMER_KEY, CONSUMER_SECRET)
+    console.log(`OAuth header generated`)
+    
+    const response = await fetch(fullUrl, {
       method: 'GET',
       headers: {
-        'Authorization': `Basic ${auth}`,
+        'Authorization': authHeader,
         'Accept': 'application/json',
         'User-Agent': 'Canto-Learn-App/1.0'
       }
