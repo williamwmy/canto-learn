@@ -28,7 +28,7 @@ export const handler = async (event, context) => {
 
   try {
     const auth = Buffer.from(`${API_KEY}:${API_SECRET}`).toString('base64')
-    const url = `https://api.thenounproject.com/icons?query=${encodeURIComponent(searchTerm)}&limit=1`
+    const url = `https://api.thenounproject.com/v2/icon?query=${encodeURIComponent(searchTerm)}&limit=1`
     
     console.log(`Fetching icon for: ${searchTerm}`)
     console.log(`URL: ${url}`)
@@ -48,8 +48,15 @@ export const handler = async (event, context) => {
 
     const data = await response.json()
     
+    let iconUrl = null
+    
     if (data.icons && data.icons.length > 0) {
-      const iconUrl = data.icons[0].preview_url || data.icons[0].icon_url
+      iconUrl = data.icons[0].preview_url || data.icons[0].icon_url
+    } else if (data.icon) {
+      iconUrl = data.icon.preview_url || data.icon.icon_url
+    }
+    
+    if (iconUrl) {
       return {
         statusCode: 200,
         headers: {
