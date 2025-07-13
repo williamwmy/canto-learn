@@ -9,8 +9,8 @@ const StartPage = ({ onStartQuiz }) => {
   return (
     <div className="start-page">
       <div className="start-container">
-        <h1>🗣️ Lær kantonesisk</h1>
-        <p className="subtitle">Øv på dagligdagse kantonesiske ord og setninger</p>
+        <h1>🗣️ Cantolingo</h1>
+        <p className="subtitle">Lær kantonesisk på en morsom og enkel måte</p>
         
         <div className="question-options">
           <h2>Hvor mange spørsmål vil du ha?</h2>

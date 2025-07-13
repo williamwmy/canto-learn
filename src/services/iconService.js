@@ -1,6 +1,6 @@
 // Persistent icon cache using localStorage
-const CACHE_KEY = 'canto-learn-icons'
-const CACHE_EXPIRY_KEY = 'canto-learn-icons-expiry'
+const CACHE_KEY = 'cantolingo-icons'
+const CACHE_EXPIRY_KEY = 'cantolingo-icons-expiry'
 const CACHE_DURATION = 7 * 24 * 60 * 60 * 1000 // 7 days
 
 function getIconCache() {

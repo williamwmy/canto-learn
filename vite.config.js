@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icon-192x192.png', 'icon-512x512.png'],
       manifest: {
-        name: 'Lær daglig kantonesisk',
-        short_name: 'Canto Learn',
-        description: 'En barnevennlig app for å lære dagligdagse kantonesiske ord og setninger',
+        name: 'Cantolingo',
+        short_name: 'Cantolingo',
+        description: 'Lær kantonesisk på en morsom og enkel måte',
         theme_color: '#667eea',
         background_color: '#ffffff',
         display: 'standalone',
