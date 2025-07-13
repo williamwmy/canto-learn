@@ -3,7 +3,7 @@ import questionsData from '../data/questions.json'
 import { getIconUrl } from '../services/iconService'
 import './Quiz.css'
 
-const Quiz = () => {
+const Quiz = ({ questionCount, onRestart }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState(null)
   const [showResult, setShowResult] = useState(false)
@@ -12,8 +12,9 @@ const Quiz = () => {
   const [icons, setIcons] = useState({})
   const [shuffledAlternatives, setShuffledAlternatives] = useState([])
   const [correctAnswerIndex, setCorrectAnswerIndex] = useState(0)
+  const [quizQuestions, setQuizQuestions] = useState([])
 
-  const question = questionsData[currentQuestion]
+  const question = quizQuestions[currentQuestion]
 
   const shuffleArray = (array) => {
     const shuffled = [...array]
@@ -61,7 +62,7 @@ const Quiz = () => {
     }
     
     setTimeout(() => {
-      if (currentQuestion < questionsData.length - 1) {
+      if (currentQuestion < quizQuestions.length - 1) {
         setCurrentQuestion(currentQuestion + 1)
         setSelectedAnswer(null)
         setIsCorrect(null)
@@ -72,6 +73,11 @@ const Quiz = () => {
   }
 
   const resetQuiz = () => {
+    // Generate new random questions
+    const shuffled = shuffleArray(questionsData)
+    const selected = shuffled.slice(0, questionCount)
+    setQuizQuestions(selected)
+    
     setCurrentQuestion(0)
     setSelectedAnswer(null)
     setShowResult(false)
@@ -79,7 +85,16 @@ const Quiz = () => {
     setIsCorrect(null)
   }
 
+  // Initialize quiz questions on mount
   useEffect(() => {
+    const shuffled = shuffleArray(questionsData)
+    const selected = shuffled.slice(0, questionCount)
+    setQuizQuestions(selected)
+  }, [questionCount])
+
+  useEffect(() => {
+    if (!question) return
+    
     // Load voices
     if ('speechSynthesis' in window) {
       speechSynthesis.getVoices()
@@ -110,7 +125,7 @@ const Quiz = () => {
     }
     
     loadIcons()
-  }, [currentQuestion])
+  }, [currentQuestion, question])
 
   const getEmojiIcon = (searchTerm) => {
     const emojiIcons = {
@@ -207,15 +222,43 @@ const Quiz = () => {
   }
 
   if (showResult) {
+    const percentage = Math.round((score / quizQuestions.length) * 100)
+    let emoji = '🎉'
+    let message = 'Gratulerer!'
+    
+    if (percentage === 100) {
+      emoji = '🌟'
+      message = 'Perfekt!'
+    } else if (percentage >= 80) {
+      emoji = '🎉'
+      message = 'Flott jobbet!'
+    } else if (percentage >= 60) {
+      emoji = '👍'
+      message = 'Bra!'
+    } else {
+      emoji = '💪'
+      message = 'Øv mer!'
+    }
+    
     return (
       <div className="quiz-result">
-        <h2>Gratulerer! 🎉</h2>
-        <p>Du fikk {score} av {questionsData.length} riktige!</p>
-        <button onClick={resetQuiz} className="restart-btn">
-          Prøv igjen
-        </button>
+        <h2>{message} {emoji}</h2>
+        <p>Du fikk {score} av {quizQuestions.length} riktige!</p>
+        <p className="percentage">{percentage}%</p>
+        <div className="result-buttons">
+          <button onClick={resetQuiz} className="restart-btn">
+            Prøv igjen
+          </button>
+          <button onClick={onRestart} className="home-btn">
+            Tilbake til start
+          </button>
+        </div>
       </div>
     )
+  }
+
+  if (!question) {
+    return <div className="loading">Laster spørsmål...</div>
   }
 
   return (
@@ -223,7 +266,7 @@ const Quiz = () => {
       <div className="quiz-header">
         <h1>Lær kantonesisk</h1>
         <div className="progress">
-          Spørsmål {currentQuestion + 1} av {questionsData.length}
+          Spørsmål {currentQuestion + 1} av {quizQuestions.length}
         </div>
       </div>
 

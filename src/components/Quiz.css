@@ -148,22 +148,59 @@
 .quiz-result p {
   font-size: 1.3em;
   color: #2c3e50;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
-.restart-btn {
-  background-color: #3498db;
-  color: white;
+.percentage {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #667eea;
+  margin: 10px 0 30px 0;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.restart-btn, .home-btn {
   border: none;
   padding: 15px 30px;
   border-radius: 25px;
   font-size: 1.2em;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.restart-btn {
+  background-color: #3498db;
+  color: white;
 }
 
 .restart-btn:hover {
   background-color: #2980b9;
+}
+
+.home-btn {
+  background: #f0f0f0;
+  color: #333;
+  border: 2px solid #ddd;
+}
+
+.home-btn:hover {
+  background: #e0e0e0;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.2rem;
+  color: #666;
 }
 
 @media (max-width: 768px) {

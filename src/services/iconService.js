@@ -1,8 +1,41 @@
-const iconCache = new Map()
+// Persistent icon cache using localStorage
+const CACHE_KEY = 'canto-learn-icons'
+const CACHE_EXPIRY_KEY = 'canto-learn-icons-expiry'
+const CACHE_DURATION = 7 * 24 * 60 * 60 * 1000 // 7 days
+
+function getIconCache() {
+  try {
+    const expiry = localStorage.getItem(CACHE_EXPIRY_KEY)
+    if (!expiry || Date.now() > parseInt(expiry)) {
+      // Cache expired, clear it
+      localStorage.removeItem(CACHE_KEY)
+      localStorage.removeItem(CACHE_EXPIRY_KEY)
+      return {}
+    }
+    
+    const cached = localStorage.getItem(CACHE_KEY)
+    return cached ? JSON.parse(cached) : {}
+  } catch (error) {
+    console.error('Error reading icon cache:', error)
+    return {}
+  }
+}
+
+function setIconCache(cache) {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cache))
+    localStorage.setItem(CACHE_EXPIRY_KEY, (Date.now() + CACHE_DURATION).toString())
+  } catch (error) {
+    console.error('Error saving icon cache:', error)
+  }
+}
 
 export const getIconUrl = async (searchTerm) => {
-  if (iconCache.has(searchTerm)) {
-    return iconCache.get(searchTerm)
+  const cache = getIconCache()
+  
+  if (cache[searchTerm]) {
+    console.log(`Using cached icon for: ${searchTerm}`)
+    return cache[searchTerm]
   }
 
   // Try Netlify function with OAuth for API icons
@@ -12,7 +45,10 @@ export const getIconUrl = async (searchTerm) => {
     if (response.ok) {
       const data = await response.json()
       if (data.iconUrl) {
-        iconCache.set(searchTerm, data.iconUrl)
+        // Cache the API icon
+        cache[searchTerm] = data.iconUrl
+        setIconCache(cache)
+        console.log(`Cached API icon for: ${searchTerm}`)
         return data.iconUrl
       }
     }
@@ -22,7 +58,8 @@ export const getIconUrl = async (searchTerm) => {
 
   // Fallback to emoji
   const iconUrl = getFallbackIcon(searchTerm)
-  iconCache.set(searchTerm, iconUrl)
+  cache[searchTerm] = iconUrl
+  setIconCache(cache)
   return iconUrl
 }
 
