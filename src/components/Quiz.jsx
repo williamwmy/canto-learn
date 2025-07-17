@@ -15,6 +15,8 @@ const Quiz = ({ questionCount, onRestart }) => {
   const [quizQuestions, setQuizQuestions] = useState([])
   const [useApiIcons, setUseApiIcons] = useState(false)
   const [iconsLoading, setIconsLoading] = useState(false)
+  const [incorrectAnswers, setIncorrectAnswers] = useState([])
+  const [isRetryMode, setIsRetryMode] = useState(false)
 
   const question = quizQuestions[currentQuestion]
 
@@ -61,6 +63,9 @@ const Quiz = ({ questionCount, onRestart }) => {
     
     if (correct) {
       setScore(score + 1)
+    } else {
+      // Track incorrect answer for retry functionality
+      setIncorrectAnswers(prev => [...prev, question])
     }
     
     setTimeout(() => {
@@ -100,6 +105,18 @@ const Quiz = ({ questionCount, onRestart }) => {
     }
   }
 
+  const startRetryQuiz = () => {
+    // Use only incorrect answers for retry
+    setQuizQuestions(incorrectAnswers)
+    setCurrentQuestion(0)
+    setSelectedAnswer(null)
+    setShowResult(false)
+    setScore(0)
+    setIsCorrect(null)
+    setIncorrectAnswers([])
+    setIsRetryMode(true)
+  }
+
   const resetQuiz = () => {
     // Generate new random questions
     const shuffled = shuffleArray(questionsData)
@@ -111,6 +128,8 @@ const Quiz = ({ questionCount, onRestart }) => {
     setShowResult(false)
     setScore(0)
     setIsCorrect(null)
+    setIncorrectAnswers([])
+    setIsRetryMode(false)
   }
 
   // Initialize quiz questions on mount
@@ -265,8 +284,13 @@ const Quiz = ({ questionCount, onRestart }) => {
         <p>Du fikk {score} av {quizQuestions.length} riktige!</p>
         <p className="percentage">{percentage}%</p>
         <div className="result-buttons">
+          {incorrectAnswers.length > 0 && !isRetryMode && (
+            <button onClick={startRetryQuiz} className="retry-btn">
+              Øv på feil ({incorrectAnswers.length})
+            </button>
+          )}
           <button onClick={resetQuiz} className="restart-btn">
-            Prøv igjen
+            {isRetryMode ? 'Ny øvingsrunde' : 'Prøv igjen'}
           </button>
           <button onClick={onRestart} className="home-btn">
             Tilbake til start
@@ -293,6 +317,7 @@ const Quiz = ({ questionCount, onRestart }) => {
         </button>
         <h1>Lær kantonesisk</h1>
         <div className="progress">
+          {isRetryMode && <span className="retry-mode">🔄 Øvingsrunde </span>}
           Spørsmål {currentQuestion + 1} av {quizQuestions.length}
         </div>
       </div>
@@ -321,7 +346,9 @@ const Quiz = ({ questionCount, onRestart }) => {
                 ? isCorrect
                   ? 'correct'
                   : 'incorrect'
-                : ''
+                : selectedAnswer !== null && index === correctAnswerIndex
+                  ? 'correct-answer'
+                  : ''
             }`}
           >
             <div className="answer-icon">

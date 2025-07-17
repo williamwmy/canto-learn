@@ -1,3 +1,4 @@
+/* global process */
 import crypto from 'crypto'
 
 // OAuth 1.0a signature generation
@@ -27,9 +28,10 @@ function generateOAuthSignature(method, url, params, consumerSecret, tokenSecret
   return signature
 }
 
-function generateOAuthHeader(method, url, consumerKey, consumerSecret) {
-  return generateOAuthHeaderWithParams(method, url, {}, consumerKey, consumerSecret)
-}
+// Unused function - keeping for potential future use
+// function generateOAuthHeader(method, url, consumerKey, consumerSecret) {
+//   return generateOAuthHeaderWithParams(method, url, {}, consumerKey, consumerSecret)
+// }
 
 function generateOAuthHeaderWithParams(method, url, queryParams, consumerKey, consumerSecret) {
   const timestamp = Math.floor(Date.now() / 1000)
@@ -58,7 +60,7 @@ function generateOAuthHeaderWithParams(method, url, queryParams, consumerKey, co
   return oauthHeader
 }
 
-export const handler = async (event, context) => {
+export const handler = async (event) => {
   // Only allow GET requests
   if (event.httpMethod !== 'GET') {
     return {
