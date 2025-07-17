@@ -30,12 +30,20 @@ function setIconCache(cache) {
   }
 }
 
-export const getIconUrl = async (searchTerm) => {
+export const getIconUrl = async (searchTerm, useApiIcons = false) => {
   const cache = getIconCache()
+  const cacheKey = useApiIcons ? `api_${searchTerm}` : `emoji_${searchTerm}`
   
-  if (cache[searchTerm]) {
-    console.log(`Using cached icon for: ${searchTerm}`)
-    return cache[searchTerm]
+  if (cache[cacheKey]) {
+    return cache[cacheKey]
+  }
+
+  // If emoji icons preferred, return emoji directly
+  if (!useApiIcons) {
+    const iconUrl = getFallbackIcon(searchTerm)
+    cache[cacheKey] = iconUrl
+    setIconCache(cache)
+    return iconUrl
   }
 
   // Try Netlify function with OAuth for API icons
@@ -46,19 +54,19 @@ export const getIconUrl = async (searchTerm) => {
       const data = await response.json()
       if (data.iconUrl) {
         // Cache the API icon
-        cache[searchTerm] = data.iconUrl
+        cache[cacheKey] = data.iconUrl
         setIconCache(cache)
         console.log(`Cached API icon for: ${searchTerm}`)
         return data.iconUrl
       }
     }
-  } catch (error) {
+  } catch {
     console.log('Netlify function not available, using emoji fallback')
   }
 
   // Fallback to emoji
   const iconUrl = getFallbackIcon(searchTerm)
-  cache[searchTerm] = iconUrl
+  cache[cacheKey] = iconUrl
   setIconCache(cache)
   return iconUrl
 }

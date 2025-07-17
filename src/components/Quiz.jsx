@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import questionsData from '../data/questions.json'
 import { getIconUrl } from '../services/iconService'
 import './Quiz.css'
@@ -13,6 +13,8 @@ const Quiz = ({ questionCount, onRestart }) => {
   const [shuffledAlternatives, setShuffledAlternatives] = useState([])
   const [correctAnswerIndex, setCorrectAnswerIndex] = useState(0)
   const [quizQuestions, setQuizQuestions] = useState([])
+  const [useApiIcons, setUseApiIcons] = useState(false)
+  const [iconsLoading, setIconsLoading] = useState(false)
 
   const question = quizQuestions[currentQuestion]
 
@@ -72,6 +74,32 @@ const Quiz = ({ questionCount, onRestart }) => {
     }, 1500)
   }
 
+  const loadIcons = useCallback(async (alternatives, useApi) => {
+    setIconsLoading(true)
+    const newIcons = {}
+    for (const alternative of alternatives) {
+      try {
+        newIcons[alternative.icon_search] = await getIconUrl(alternative.icon_search, useApi)
+      } catch (error) {
+        console.error('Error loading icon:', error)
+        newIcons[alternative.icon_search] = getEmojiIcon(alternative.icon_search)
+      }
+    }
+    // Update icons all at once to prevent layout shifts
+    setIcons(prevIcons => ({ ...prevIcons, ...newIcons }))
+    setIconsLoading(false)
+  }, [])
+
+  const handleIconToggle = async () => {
+    const newUseApiIcons = !useApiIcons
+    setUseApiIcons(newUseApiIcons)
+    
+    // Reload icons immediately with new setting
+    if (question && shuffledAlternatives.length > 0) {
+      await loadIcons(shuffledAlternatives, newUseApiIcons)
+    }
+  }
+
   const resetQuiz = () => {
     // Generate new random questions
     const shuffled = shuffleArray(questionsData)
@@ -92,6 +120,7 @@ const Quiz = ({ questionCount, onRestart }) => {
     setQuizQuestions(selected)
   }, [questionCount])
 
+  // Handle question changes (shuffle answers only when question changes)
   useEffect(() => {
     if (!question) return
     
@@ -109,23 +138,13 @@ const Quiz = ({ questionCount, onRestart }) => {
       alt => alt.text === question.correct_answer.text
     )
     setCorrectAnswerIndex(correctIndex)
-    
-    // Load icons for current question
-    const loadIcons = async () => {
-      const newIcons = {}
-      for (const alternative of shuffled) {
-        try {
-          newIcons[alternative.icon_search] = await getIconUrl(alternative.icon_search)
-        } catch (error) {
-          console.error('Error loading icon:', error)
-          newIcons[alternative.icon_search] = getEmojiIcon(alternative.icon_search)
-        }
-      }
-      setIcons(newIcons)
-    }
-    
-    loadIcons()
   }, [currentQuestion, question])
+
+  // Handle icon loading (load icons when question or icon type changes)
+  useEffect(() => {
+    if (!question || shuffledAlternatives.length === 0) return
+    loadIcons(shuffledAlternatives, useApiIcons)
+  }, [question, shuffledAlternatives, loadIcons, useApiIcons])
 
   const getEmojiIcon = (searchTerm) => {
     const emojiIcons = {
@@ -264,6 +283,14 @@ const Quiz = ({ questionCount, onRestart }) => {
   return (
     <div className="quiz-container">
       <div className="quiz-header">
+        <button 
+          onClick={handleIconToggle}
+          className="icon-toggle-btn"
+          title={useApiIcons ? "Bytt til emoji ikoner" : "Bytt til API ikoner"}
+          disabled={iconsLoading}
+        >
+          {iconsLoading ? "⏳" : (useApiIcons ? "🎨" : "🖼️")}
+        </button>
         <h1>Lær kantonesisk</h1>
         <div className="progress">
           Spørsmål {currentQuestion + 1} av {quizQuestions.length}
