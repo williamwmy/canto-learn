@@ -17,8 +17,16 @@ const Quiz = ({ questionCount, onRestart }) => {
   const [iconsLoading, setIconsLoading] = useState(false)
   const [incorrectAnswers, setIncorrectAnswers] = useState([])
   const [isRetryMode, setIsRetryMode] = useState(false)
+  const [starsEarned, setStarsEarned] = useState(0)
+  const [showStars, setShowStars] = useState(false)
 
   const question = quizQuestions[currentQuestion]
+
+  // Calculate stars based on percentage (rounded up)
+  const calculateStars = (percentage) => {
+    if (percentage === 0) return 0
+    return Math.ceil(percentage / 20) // Each star is 20%, rounded up
+  }
 
   const shuffleArray = (array) => {
     const shuffled = [...array]
@@ -115,6 +123,8 @@ const Quiz = ({ questionCount, onRestart }) => {
     setIsCorrect(null)
     setIncorrectAnswers([])
     setIsRetryMode(true)
+    setStarsEarned(0)
+    setShowStars(false)
   }
 
   const resetQuiz = () => {
@@ -130,6 +140,8 @@ const Quiz = ({ questionCount, onRestart }) => {
     setIsCorrect(null)
     setIncorrectAnswers([])
     setIsRetryMode(false)
+    setStarsEarned(0)
+    setShowStars(false)
   }
 
   // Initialize quiz questions on mount
@@ -164,6 +176,22 @@ const Quiz = ({ questionCount, onRestart }) => {
     if (!question || shuffledAlternatives.length === 0) return
     loadIcons(shuffledAlternatives, useApiIcons)
   }, [question, shuffledAlternatives, loadIcons, useApiIcons])
+
+  const StarRating = ({ stars, total = 5 }) => {
+    return (
+      <div className="star-rating">
+        {[...Array(total)].map((_, index) => (
+          <span
+            key={index}
+            className={`star ${index < stars ? 'filled' : 'empty'}`}
+            style={{ animationDelay: `${index * 0.3}s` }}
+          >
+            ⭐
+          </span>
+        ))}
+      </div>
+    )
+  }
 
   const getEmojiIcon = (searchTerm) => {
     const emojiIcons = {
@@ -261,26 +289,51 @@ const Quiz = ({ questionCount, onRestart }) => {
 
   if (showResult) {
     const percentage = Math.round((score / quizQuestions.length) * 100)
+    const stars = calculateStars(percentage)
     let emoji = '🎉'
     let message = 'Gratulerer!'
     
-    if (percentage === 100) {
-      emoji = '🌟'
-      message = 'Perfekt!'
-    } else if (percentage >= 80) {
-      emoji = '🎉'
-      message = 'Flott jobbet!'
-    } else if (percentage >= 60) {
-      emoji = '👍'
-      message = 'Bra!'
+    if (isRetryMode) {
+      if (percentage === 100) {
+        emoji = '🎯'
+        message = 'Perfekt øving!'
+      } else if (percentage >= 50) {
+        emoji = '📈'
+        message = 'Bra forbedring!'
+      } else {
+        emoji = '🔄'
+        message = 'Fortsett å øve!'
+      }
     } else {
-      emoji = '💪'
-      message = 'Øv mer!'
+      if (percentage === 100) {
+        emoji = '🌟'
+        message = 'Perfekt!'
+      } else if (percentage >= 80) {
+        emoji = '🎉'
+        message = 'Flott jobbet!'
+      } else if (percentage >= 60) {
+        emoji = '👍'
+        message = 'Bra!'
+      } else {
+        emoji = '💪'
+        message = 'Øv mer!'
+      }
+    }
+
+    // Trigger star animation after a brief delay (but not for retry mode)
+    if (!showStars && !isRetryMode) {
+      setTimeout(() => {
+        setStarsEarned(stars)
+        setShowStars(true)
+      }, 500)
     }
     
     return (
       <div className="quiz-result">
         <h2>{message} {emoji}</h2>
+        <div className="stars-container">
+          {showStars && !isRetryMode && <StarRating stars={starsEarned} />}
+        </div>
         <p>Du fikk {score} av {quizQuestions.length} riktige!</p>
         <p className="percentage">{percentage}%</p>
         <div className="result-buttons">
