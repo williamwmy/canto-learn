@@ -262,7 +262,30 @@ const getFallbackIcon = (searchTerm) => {
     'rainbow': '🌈',
     'swimming': '🏊',
     'bathing': '🛁',
-    'cycling': '🚴'
+    'cycling': '🚴',
+    'head': '🗣️',
+    'eye': '👁️',
+    'nose': '👃',
+    'mouth': '👄',
+    'ear': '👂',
+    'hand': '✋',
+    'foot': '🦶',
+    'arm': '💪',
+    'leg': '🦵',
+    'tooth': '🦷',
+    'heart': '❤️',
+    'stomach': '🤰',
+    'nail': '💅',
+    'hair': '💇',
+    'face': '😊',
+    'finger': '👆',
+    'toe': '🦶',
+    'shoulder': '🤷',
+    'knee': '🦵',
+    'tongue': '👅',
+    'lips': '💋',
+    'chest': '🫁',
+    'back': '🔙'
   }
   
   return fallbackIcons[searchTerm] || '❓'

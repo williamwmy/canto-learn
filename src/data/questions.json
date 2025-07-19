@@ -3118,5 +3118,395 @@
         "icon_search": "stop"
       }
     ]
+  },
+  {
+    "question_id": 121,
+    "tts_text": "頭",
+    "correct_answer": {
+      "text": "Hode",
+      "icon_search": "head"
+    },
+    "alternatives": [
+      {
+        "text": "Hode",
+        "icon_search": "head"
+      },
+      {
+        "text": "Arm",
+        "icon_search": "arm"
+      },
+      {
+        "text": "Bein",
+        "icon_search": "leg"
+      },
+      {
+        "text": "Hånd",
+        "icon_search": "hand"
+      }
+    ]
+  },
+  {
+    "question_id": 122,
+    "tts_text": "眼",
+    "correct_answer": {
+      "text": "Øye",
+      "icon_search": "eye"
+    },
+    "alternatives": [
+      {
+        "text": "Øye",
+        "icon_search": "eye"
+      },
+      {
+        "text": "Nese",
+        "icon_search": "nose"
+      },
+      {
+        "text": "Munn",
+        "icon_search": "mouth"
+      },
+      {
+        "text": "Øre",
+        "icon_search": "ear"
+      }
+    ]
+  },
+  {
+    "question_id": 123,
+    "tts_text": "鼻",
+    "correct_answer": {
+      "text": "Nese",
+      "icon_search": "nose"
+    },
+    "alternatives": [
+      {
+        "text": "Nese",
+        "icon_search": "nose"
+      },
+      {
+        "text": "Øye",
+        "icon_search": "eye"
+      },
+      {
+        "text": "Munn",
+        "icon_search": "mouth"
+      },
+      {
+        "text": "Tann",
+        "icon_search": "tooth"
+      }
+    ]
+  },
+  {
+    "question_id": 124,
+    "tts_text": "口",
+    "correct_answer": {
+      "text": "Munn",
+      "icon_search": "mouth"
+    },
+    "alternatives": [
+      {
+        "text": "Munn",
+        "icon_search": "mouth"
+      },
+      {
+        "text": "Nese",
+        "icon_search": "nose"
+      },
+      {
+        "text": "Øre",
+        "icon_search": "ear"
+      },
+      {
+        "text": "Øye",
+        "icon_search": "eye"
+      }
+    ]
+  },
+  {
+    "question_id": 125,
+    "tts_text": "耳仔",
+    "correct_answer": {
+      "text": "Øre",
+      "icon_search": "ear"
+    },
+    "alternatives": [
+      {
+        "text": "Øre",
+        "icon_search": "ear"
+      },
+      {
+        "text": "Øye",
+        "icon_search": "eye"
+      },
+      {
+        "text": "Hånd",
+        "icon_search": "hand"
+      },
+      {
+        "text": "Fot",
+        "icon_search": "foot"
+      }
+    ]
+  },
+  {
+    "question_id": 126,
+    "tts_text": "手",
+    "correct_answer": {
+      "text": "Hånd",
+      "icon_search": "hand"
+    },
+    "alternatives": [
+      {
+        "text": "Hånd",
+        "icon_search": "hand"
+      },
+      {
+        "text": "Fot",
+        "icon_search": "foot"
+      },
+      {
+        "text": "Arm",
+        "icon_search": "arm"
+      },
+      {
+        "text": "Bein",
+        "icon_search": "leg"
+      }
+    ]
+  },
+  {
+    "question_id": 127,
+    "tts_text": "腳",
+    "correct_answer": {
+      "text": "Fot",
+      "icon_search": "foot"
+    },
+    "alternatives": [
+      {
+        "text": "Fot",
+        "icon_search": "foot"
+      },
+      {
+        "text": "Hånd",
+        "icon_search": "hand"
+      },
+      {
+        "text": "Bein",
+        "icon_search": "leg"
+      },
+      {
+        "text": "Arm",
+        "icon_search": "arm"
+      }
+    ]
+  },
+  {
+    "question_id": 128,
+    "tts_text": "手臂",
+    "correct_answer": {
+      "text": "Arm",
+      "icon_search": "arm"
+    },
+    "alternatives": [
+      {
+        "text": "Arm",
+        "icon_search": "arm"
+      },
+      {
+        "text": "Bein",
+        "icon_search": "leg"
+      },
+      {
+        "text": "Hånd",
+        "icon_search": "hand"
+      },
+      {
+        "text": "Skulder",
+        "icon_search": "shoulder"
+      }
+    ]
+  },
+  {
+    "question_id": 129,
+    "tts_text": "腳仔",
+    "correct_answer": {
+      "text": "Bein",
+      "icon_search": "leg"
+    },
+    "alternatives": [
+      {
+        "text": "Bein",
+        "icon_search": "leg"
+      },
+      {
+        "text": "Arm",
+        "icon_search": "arm"
+      },
+      {
+        "text": "Fot",
+        "icon_search": "foot"
+      },
+      {
+        "text": "Kne",
+        "icon_search": "knee"
+      }
+    ]
+  },
+  {
+    "question_id": 130,
+    "tts_text": "牙",
+    "correct_answer": {
+      "text": "Tann",
+      "icon_search": "tooth"
+    },
+    "alternatives": [
+      {
+        "text": "Tann",
+        "icon_search": "tooth"
+      },
+      {
+        "text": "Munn",
+        "icon_search": "mouth"
+      },
+      {
+        "text": "Tunge",
+        "icon_search": "tongue"
+      },
+      {
+        "text": "Lepper",
+        "icon_search": "lips"
+      }
+    ]
+  },
+  {
+    "question_id": 131,
+    "tts_text": "心",
+    "correct_answer": {
+      "text": "Hjerte",
+      "icon_search": "heart"
+    },
+    "alternatives": [
+      {
+        "text": "Hjerte",
+        "icon_search": "heart"
+      },
+      {
+        "text": "Mage",
+        "icon_search": "stomach"
+      },
+      {
+        "text": "Bryst",
+        "icon_search": "chest"
+      },
+      {
+        "text": "Rygg",
+        "icon_search": "back"
+      }
+    ]
+  },
+  {
+    "question_id": 132,
+    "tts_text": "肚",
+    "correct_answer": {
+      "text": "Mage",
+      "icon_search": "stomach"
+    },
+    "alternatives": [
+      {
+        "text": "Mage",
+        "icon_search": "stomach"
+      },
+      {
+        "text": "Hjerte",
+        "icon_search": "heart"
+      },
+      {
+        "text": "Bryst",
+        "icon_search": "chest"
+      },
+      {
+        "text": "Rygg",
+        "icon_search": "back"
+      }
+    ]
+  },
+  {
+    "question_id": 133,
+    "tts_text": "指甲",
+    "correct_answer": {
+      "text": "Negl",
+      "icon_search": "nail"
+    },
+    "alternatives": [
+      {
+        "text": "Negl",
+        "icon_search": "nail"
+      },
+      {
+        "text": "Finger",
+        "icon_search": "finger"
+      },
+      {
+        "text": "Hånd",
+        "icon_search": "hand"
+      },
+      {
+        "text": "Tå",
+        "icon_search": "toe"
+      }
+    ]
+  },
+  {
+    "question_id": 134,
+    "tts_text": "頭髮",
+    "correct_answer": {
+      "text": "Hår",
+      "icon_search": "hair"
+    },
+    "alternatives": [
+      {
+        "text": "Hår",
+        "icon_search": "hair"
+      },
+      {
+        "text": "Hode",
+        "icon_search": "head"
+      },
+      {
+        "text": "Ansikt",
+        "icon_search": "face"
+      },
+      {
+        "text": "Øye",
+        "icon_search": "eye"
+      }
+    ]
+  },
+  {
+    "question_id": 135,
+    "tts_text": "面",
+    "correct_answer": {
+      "text": "Ansikt",
+      "icon_search": "face"
+    },
+    "alternatives": [
+      {
+        "text": "Ansikt",
+        "icon_search": "face"
+      },
+      {
+        "text": "Hode",
+        "icon_search": "head"
+      },
+      {
+        "text": "Hår",
+        "icon_search": "hair"
+      },
+      {
+        "text": "Munn",
+        "icon_search": "mouth"
+      }
+    ]
   }
 ]
